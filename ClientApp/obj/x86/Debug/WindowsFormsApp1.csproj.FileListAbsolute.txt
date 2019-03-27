@@ -1,0 +1,15 @@
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\bin\Debug\iFriend.exe.config
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\bin\Debug\iFriend.exe
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\bin\Debug\iFriend.pdb
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.Properties.Resources.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\iFriend.exe
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\iFriend.pdb
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormCreateGroup.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormFindFriend.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormJoinGroup.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormLogin.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormMessage.resources
+C:\Users\cly\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\ClientApp\obj\x86\Debug\ClientApp.FormRegister.resources

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ws_message" Class="DataMessageDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=ws_message;Integrated Security=True" SettingsObjectName="Web.DAL.Properties.Settings" SettingsPropertyName="ws_messageConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Friends" Member="Friends">
+    <Type Name="Friends">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FriendName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IsPass" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Users_Friends" Member="Users" AccessModifier="Internal" ThisKey="FriendName" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+      <Association Name="Users_Friends1" Member="Users1" AccessModifier="Internal" ThisKey="UserName" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nickname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IsOnline" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Users_Friends" Member="Friends" ThisKey="Nickname" OtherKey="FriendName" Type="Friends" />
+      <Association Name="Users_Friends1" Member="Friends1" ThisKey="Nickname" OtherKey="UserName" Type="Friends" />
+      <Association Name="Users_Messages" Member="Messages" ThisKey="Nickname" OtherKey="Receiver" Type="Messages" />
+      <Association Name="Users_Messages1" Member="Messages1" ThisKey="Nickname" OtherKey="Sender" Type="Messages" />
+      <Association Name="Users_GroupMembers" Member="GroupMembers" ThisKey="Nickname" OtherKey="GroupMember" Type="GroupMembers" />
+      <Association Name="Users_Groups" Member="Groups" ThisKey="Nickname" OtherKey="GroupMaster" Type="Groups" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messages" Member="Messages">
+    <Type Name="Messages">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Classify" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sender" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Receiver" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FileFullName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SendTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Users_Messages" Member="Users" AccessModifier="Internal" ThisKey="Receiver" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+      <Association Name="Users_Messages1" Member="Users1" AccessModifier="Internal" ThisKey="Sender" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupMembers" Member="GroupMembers">
+    <Type Name="GroupMembers">
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupMember" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="IsPass" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Users_GroupMembers" Member="Users" AccessModifier="Internal" ThisKey="GroupMember" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+      <Association Name="Groups_GroupMembers" Member="Groups" AccessModifier="Internal" ThisKey="GroupName" OtherKey="GroupName" Type="Groups" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Groups">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupMaster" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Groups_GroupMembers" Member="GroupMembers" ThisKey="GroupName" OtherKey="GroupName" Type="GroupMembers" />
+      <Association Name="Users_Groups" Member="Users" AccessModifier="Internal" ThisKey="GroupMaster" OtherKey="Nickname" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,11 @@
+e:\java\chatToolApp\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.dll.config
+e:\java\chatToolApp\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.dll
+e:\java\chatToolApp\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.pdb
+e:\java\chatToolApp\WebServiceApp\Web.DAL\obj\Debug\ResolveAssemblyReference.cache
+e:\java\chatToolApp\WebServiceApp\Web.DAL\obj\Debug\Web.DAL.dll
+e:\java\chatToolApp\WebServiceApp\Web.DAL\obj\Debug\Web.DAL.pdb
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.dll.config
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.dll
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.DAL\bin\Debug\Web.DAL.pdb
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.DAL\obj\Debug\Web.DAL.dll
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.DAL\obj\Debug\Web.DAL.pdb

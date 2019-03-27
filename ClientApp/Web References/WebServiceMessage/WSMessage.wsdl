@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HavaUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HavaUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HavaUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsOnline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsOnlineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsOnlineResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Offline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OfflineResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddFriend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFriendResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="JoinGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JoinGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveFriend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFriendResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="HandleFriendRequst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accept" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="friend" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HandleFriendRequstResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="HandleGroupRequst">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accept" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="friend" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HandleGroupRequstResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DissolveGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DissolveGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsExistTheGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsExistTheGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsExistTheGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFriendToGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="friendName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFriendToGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddFriendToGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFriendFromGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="friendName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFriendFromGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveFriendFromGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsInGroupResult" type="tns:ArrayOfGroupMembers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroupMembers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupMembers" nillable="true" type="tns:GroupMembers" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupMembers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupMember" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPass" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GroupMembers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GroupMembersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupMembersResult" type="tns:ArrayOfGroupMembers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:Messages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Messages">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Classify" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Receiver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendTime" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMessageQun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:Messages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessageQunResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:Messages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Monitor">
+        <s:complexType />
+      </s:element>
+      <s:element name="MonitorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MonitorResult" type="tns:ArrayOfMessages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Messages" nillable="true" type="tns:Messages" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFriendList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFriendListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFriendListResult" type="tns:ArrayOfFriends" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFriends">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Friends" nillable="true" type="tns:Friends" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Friends">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FriendName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPass" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HavaUserSoapIn">
+    <wsdl:part name="parameters" element="tns:HavaUser" />
+  </wsdl:message>
+  <wsdl:message name="HavaUserSoapOut">
+    <wsdl:part name="parameters" element="tns:HavaUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsOnlineSoapIn">
+    <wsdl:part name="parameters" element="tns:IsOnline" />
+  </wsdl:message>
+  <wsdl:message name="IsOnlineSoapOut">
+    <wsdl:part name="parameters" element="tns:IsOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="OfflineSoapIn">
+    <wsdl:part name="parameters" element="tns:Offline" />
+  </wsdl:message>
+  <wsdl:message name="OfflineSoapOut">
+    <wsdl:part name="parameters" element="tns:OfflineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="JoinGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:JoinGroup" />
+  </wsdl:message>
+  <wsdl:message name="JoinGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:JoinGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFriendSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFriend" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFriendSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="HandleFriendRequstSoapIn">
+    <wsdl:part name="parameters" element="tns:HandleFriendRequst" />
+  </wsdl:message>
+  <wsdl:message name="HandleFriendRequstSoapOut">
+    <wsdl:part name="parameters" element="tns:HandleFriendRequstResponse" />
+  </wsdl:message>
+  <wsdl:message name="HandleGroupRequstSoapIn">
+    <wsdl:part name="parameters" element="tns:HandleGroupRequst" />
+  </wsdl:message>
+  <wsdl:message name="HandleGroupRequstSoapOut">
+    <wsdl:part name="parameters" element="tns:HandleGroupRequstResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="CreateGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DissolveGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:DissolveGroup" />
+  </wsdl:message>
+  <wsdl:message name="DissolveGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:DissolveGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsExistTheGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:IsExistTheGroup" />
+  </wsdl:message>
+  <wsdl:message name="IsExistTheGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:IsExistTheGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendToGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFriendToGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddFriendToGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFriendToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFriendFromGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFriendFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFriendFromGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFriendFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:IsInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:IsInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GroupMembersSoapIn">
+    <wsdl:part name="parameters" element="tns:GroupMembers" />
+  </wsdl:message>
+  <wsdl:message name="GroupMembersSoapOut">
+    <wsdl:part name="parameters" element="tns:GroupMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageQunSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessageQun" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageQunSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageQunResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFile" />
+  </wsdl:message>
+  <wsdl:message name="SendFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonitorSoapIn">
+    <wsdl:part name="parameters" element="tns:Monitor" />
+  </wsdl:message>
+  <wsdl:message name="MonitorSoapOut">
+    <wsdl:part name="parameters" element="tns:MonitorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFriendListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFriendList" />
+  </wsdl:message>
+  <wsdl:message name="GetFriendListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFriendListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSMessageSoap">
+    <wsdl:operation name="HavaUser">
+      <wsdl:input message="tns:HavaUserSoapIn" />
+      <wsdl:output message="tns:HavaUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input message="tns:RegisterSoapIn" />
+      <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsOnline">
+      <wsdl:input message="tns:IsOnlineSoapIn" />
+      <wsdl:output message="tns:IsOnlineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Offline">
+      <wsdl:input message="tns:OfflineSoapIn" />
+      <wsdl:output message="tns:OfflineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <wsdl:input message="tns:AddFriendSoapIn" />
+      <wsdl:output message="tns:AddFriendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <wsdl:input message="tns:JoinGroupSoapIn" />
+      <wsdl:output message="tns:JoinGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriend">
+      <wsdl:input message="tns:RemoveFriendSoapIn" />
+      <wsdl:output message="tns:RemoveFriendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HandleFriendRequst">
+      <wsdl:input message="tns:HandleFriendRequstSoapIn" />
+      <wsdl:output message="tns:HandleFriendRequstSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HandleGroupRequst">
+      <wsdl:input message="tns:HandleGroupRequstSoapIn" />
+      <wsdl:output message="tns:HandleGroupRequstSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input message="tns:CreateGroupSoapIn" />
+      <wsdl:output message="tns:CreateGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DissolveGroup">
+      <wsdl:input message="tns:DissolveGroupSoapIn" />
+      <wsdl:output message="tns:DissolveGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTheGroup">
+      <wsdl:input message="tns:IsExistTheGroupSoapIn" />
+      <wsdl:output message="tns:IsExistTheGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendToGroup">
+      <wsdl:input message="tns:AddFriendToGroupSoapIn" />
+      <wsdl:output message="tns:AddFriendToGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriendFromGroup">
+      <wsdl:input message="tns:RemoveFriendFromGroupSoapIn" />
+      <wsdl:output message="tns:RemoveFriendFromGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <wsdl:input message="tns:IsInGroupSoapIn" />
+      <wsdl:output message="tns:IsInGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <wsdl:input message="tns:GroupMembersSoapIn" />
+      <wsdl:output message="tns:GroupMembersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="tns:SendMessageSoapIn" />
+      <wsdl:output message="tns:SendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageQun">
+      <wsdl:input message="tns:SendMessageQunSoapIn" />
+      <wsdl:output message="tns:SendMessageQunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFile">
+      <wsdl:input message="tns:SendFileSoapIn" />
+      <wsdl:output message="tns:SendFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monitor">
+      <wsdl:input message="tns:MonitorSoapIn" />
+      <wsdl:output message="tns:MonitorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendList">
+      <wsdl:input message="tns:GetFriendListSoapIn" />
+      <wsdl:output message="tns:GetFriendListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSMessageSoap" type="tns:WSMessageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HavaUser">
+      <soap:operation soapAction="http://tempuri.org/HavaUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsOnline">
+      <soap:operation soapAction="http://tempuri.org/IsOnline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Offline">
+      <soap:operation soapAction="http://tempuri.org/Offline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap:operation soapAction="http://tempuri.org/AddFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <soap:operation soapAction="http://tempuri.org/JoinGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriend">
+      <soap:operation soapAction="http://tempuri.org/RemoveFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleFriendRequst">
+      <soap:operation soapAction="http://tempuri.org/HandleFriendRequst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleGroupRequst">
+      <soap:operation soapAction="http://tempuri.org/HandleGroupRequst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DissolveGroup">
+      <soap:operation soapAction="http://tempuri.org/DissolveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTheGroup">
+      <soap:operation soapAction="http://tempuri.org/IsExistTheGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendToGroup">
+      <soap:operation soapAction="http://tempuri.org/AddFriendToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriendFromGroup">
+      <soap:operation soapAction="http://tempuri.org/RemoveFriendFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <soap:operation soapAction="http://tempuri.org/IsInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <soap:operation soapAction="http://tempuri.org/GroupMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageQun">
+      <soap:operation soapAction="http://tempuri.org/SendMessageQun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFile">
+      <soap:operation soapAction="http://tempuri.org/SendFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monitor">
+      <soap:operation soapAction="http://tempuri.org/Monitor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendList">
+      <soap:operation soapAction="http://tempuri.org/GetFriendList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSMessageSoap12" type="tns:WSMessageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HavaUser">
+      <soap12:operation soapAction="http://tempuri.org/HavaUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsOnline">
+      <soap12:operation soapAction="http://tempuri.org/IsOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Offline">
+      <soap12:operation soapAction="http://tempuri.org/Offline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap12:operation soapAction="http://tempuri.org/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <soap12:operation soapAction="http://tempuri.org/JoinGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriend">
+      <soap12:operation soapAction="http://tempuri.org/RemoveFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleFriendRequst">
+      <soap12:operation soapAction="http://tempuri.org/HandleFriendRequst" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleGroupRequst">
+      <soap12:operation soapAction="http://tempuri.org/HandleGroupRequst" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap12:operation soapAction="http://tempuri.org/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DissolveGroup">
+      <soap12:operation soapAction="http://tempuri.org/DissolveGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTheGroup">
+      <soap12:operation soapAction="http://tempuri.org/IsExistTheGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriendToGroup">
+      <soap12:operation soapAction="http://tempuri.org/AddFriendToGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriendFromGroup">
+      <soap12:operation soapAction="http://tempuri.org/RemoveFriendFromGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <soap12:operation soapAction="http://tempuri.org/IsInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <soap12:operation soapAction="http://tempuri.org/GroupMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageQun">
+      <soap12:operation soapAction="http://tempuri.org/SendMessageQun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFile">
+      <soap12:operation soapAction="http://tempuri.org/SendFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monitor">
+      <soap12:operation soapAction="http://tempuri.org/Monitor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendList">
+      <soap12:operation soapAction="http://tempuri.org/GetFriendList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSMessage">
+    <wsdl:port name="WSMessageSoap" binding="tns:WSMessageSoap">
+      <soap:address location="http://localhost:1100/WSMessage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSMessageSoap12" binding="tns:WSMessageSoap12">
+      <soap12:address location="http://localhost:1100/WSMessage.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

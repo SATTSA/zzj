@@ -1,0 +1,14 @@
+e:\java\chatToolApp\WebServiceApp\Web.BLL\bin\Debug\Web.BLL.dll
+e:\java\chatToolApp\WebServiceApp\Web.BLL\bin\Debug\Web.BLL.pdb
+e:\java\chatToolApp\WebServiceApp\Web.BLL\bin\Debug\Web.DAL.dll
+e:\java\chatToolApp\WebServiceApp\Web.BLL\bin\Debug\Web.DAL.pdb
+e:\java\chatToolApp\WebServiceApp\Web.BLL\obj\Debug\ResolveAssemblyReference.cache
+e:\java\chatToolApp\WebServiceApp\Web.BLL\obj\Debug\Web.BLL.dll
+e:\java\chatToolApp\WebServiceApp\Web.BLL\obj\Debug\Web.BLL.pdb
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\bin\Debug\Web.BLL.dll
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\bin\Debug\Web.BLL.pdb
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\bin\Debug\Web.DAL.dll
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\bin\Debug\Web.DAL.pdb
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\obj\Debug\Web.BLL.csprojResolveAssemblyReference.cache
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\obj\Debug\Web.BLL.dll
+C:\Users\msi\Desktop\基于Web服务简易网络聊天工具的设计与实现\WebServiceApp\Web.BLL\obj\Debug\Web.BLL.pdb
